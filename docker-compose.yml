@@ -10,7 +10,6 @@ services:
       - ./docker/nginx/certs:/etc/certs
     depends_on:
       - wordpress
-    restart: always
 
   mysql:
     image: mariadb
@@ -20,7 +19,6 @@ services:
     environment:
       - MYSQL_ROOT_PASSWORD=password
       - MYSQL_DATABASE=wordpress-starter-template
-    restart: always
     ports:
       - "3308:3306"
 
@@ -39,7 +37,6 @@ services:
       - mysql
     extra_hosts:
       - "host.docker.internal:host-gateway"
-    restart: always
 
   composer:
     image: composer
